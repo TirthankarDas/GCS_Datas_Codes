@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Global Network Overview - Smart Supply Chains</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#3b494c",
+                    "primary-fixed": "#9cf0ff",
+                    "on-secondary-container": "#b5b8c6",
+                    "surface-variant": "#313540",
+                    "on-primary": "#00363d",
+                    "tertiary-container": "#ffc779",
+                    "secondary-container": "#454955",
+                    "background": "#0f131d",
+                    "surface-tint": "#00daf3",
+                    "on-surface-variant": "#bac9cc",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0a0e18",
+                    "inverse-surface": "#dfe2f1",
+                    "on-secondary-fixed": "#171b26",
+                    "tertiary-fixed-dim": "#ffb950",
+                    "primary": "#c3f5ff",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "tertiary": "#ffead2",
+                    "secondary": "#c3c6d4",
+                    "on-background": "#dfe2f1",
+                    "primary-fixed-dim": "#00daf3",
+                    "primary-container": "#00e5ff",
+                    "on-secondary": "#2c303b",
+                    "tertiary-fixed": "#ffddb3",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#262a35",
+                    "on-tertiary-fixed": "#291800",
+                    "inverse-primary": "#006875",
+                    "surface": "#0f131d",
+                    "surface-container-low": "#171b26",
+                    "on-primary-fixed": "#001f24",
+                    "surface-container-highest": "#313540",
+                    "on-secondary-fixed-variant": "#434652",
+                    "secondary-fixed-dim": "#c3c6d4",
+                    "on-tertiary-container": "#7b5000",
+                    "on-primary-fixed-variant": "#004f58",
+                    "surface-dim": "#0f131d",
+                    "surface-bright": "#353944",
+                    "on-tertiary": "#452b00",
+                    "on-surface": "#dfe2f1",
+                    "outline": "#849396",
+                    "secondary-fixed": "#dfe2f1",
+                    "inverse-on-surface": "#2c303b",
+                    "surface-container": "#1c1f2a",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#00626e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"],
+                    "mono": ["Roboto Mono"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(49, 53, 64, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(195, 245, 255, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .cyber-glow-border {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .map-gradient {
+            background: radial-gradient(circle at center, #171b26 0%, #0f131d 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="bg-[#0f131d] dark:bg-[#0f131d] flex justify-between items-center w-full px-6 py-3 border-b border-white/5 docked full-width top-0 shadow-[0_4px_20px_rgba(0,229,255,0.05)] z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold uppercase tracking-widest text-cyan-400 font-['Space_Grotesk']">Smart Supply Chains</span>
+<div class="hidden md:flex space-x-6 font-['Space_Grotesk'] tracking-tight">
+<a class="text-slate-400 hover:text-cyan-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Dashboard</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Logistics</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Analytics</a>
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 hover:text-cyan-200 transition-colors duration-300 cursor-pointer active:scale-95" href="#">Network</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-all">notifications</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-all">settings</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest overflow-hidden border border-white/10">
+<img alt="User profile" data-alt="Close-up professional portrait of a tech executive in a dark environment with blue rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnAq6wWrap6PBlmTA8qb6rp-MngP7X3JddtSoxyXIF8awba6Ey_pQ6lbRwjTyAx6QyGBoZPqQ9NsVdCMTR9Q7-nh3pWzSfclRUSVjXkeIVMik-kCXD8WKz5gjLPMpImBnEwZHi1OxBLg3Wa9N-6B3wGDT6uubkoQ8TiYzTGhpmnlkrz9IZ1bYSOq4Qf6KTxMOFEypVo6A24xHiJODoT0G4bbpSbd1kCFh7zLvTF9BvHUB0nul0FmuCma7dIgBV43D6ROY9UIf9W8M"/>
+</div>
+</div>
+</nav>
+<div class="flex h-[calc(100vh-60px)] overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-[#0f131d] dark:bg-[#0f131d] flex flex-col h-full py-6 space-y-4 border-r border-white/5 h-screen w-64 docked left-0 hidden lg:flex">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-sm bg-primary/10 flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-cyan-400" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h2 class="font-['Space_Grotesk'] font-black text-cyan-400 leading-none">Kinetic Terminal</h2>
+<p class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">V 2.0.4</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-cyan-300 transition-all duration-200 ease-in-out font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">terminal</span>
+<span>Command Center</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-cyan-300 transition-all duration-200 ease-in-out font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span>Freight Flow</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-500 hover:bg-white/5 hover:text-cyan-300 transition-all duration-200 ease-in-out font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined">auto_graph</span>
+<span>Risk Radar</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 bg-cyan-500/10 text-cyan-400 border-r-2 border-cyan-400 font-['Inter'] text-sm font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hub</span>
+<span>Nodes</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-3 bg-primary-container text-on-primary-container font-headline font-bold text-xs uppercase tracking-widest rounded-sm hover:brightness-110 active:scale-95 transition-all">
+                    Live Sync
+                </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 relative overflow-hidden flex flex-col">
+<!-- 3D-Style Global Map Background -->
+<div class="absolute inset-0 z-0 map-gradient">
+<div class="w-full h-full opacity-40 mix-blend-screen pointer-events-none">
+<img class="w-full h-full object-cover" data-alt="Digital high-tech world map with glowing cyan grid lines, interconnected data nodes, and dark deep space background" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRPiQ2FUX1hehc6fuGrvT95WtbxmAInaiEqWmYg1NEXJQuGPmls9X716HZoe1Y0UOon3w4l3l2tdH4nR61lQMecC-l4Sri3Gebi9Gz-IEFCzLfy5N9pP0zAmWgpP__yAKqgldxH96e9S8mnYbO_wKUqZ6wF_fukEDl1zAWyi4UihvUvCmTI-qOL0sPrGENV3Xxl8tg4gNKmcyXWxqhe5kYTKV2Xp2vx6yk20O43fpuJqllf-Gx2ag9OFYpqDScxm091CIsWTymC8Y"/>
+</div>
+<!-- Interactive Node Overlays (Visual Only) -->
+<div class="absolute top-1/4 left-1/3 w-3 h-3 bg-primary rounded-full cyber-glow-border animate-pulse"></div>
+<div class="absolute top-1/2 left-2/3 w-3 h-3 bg-tertiary-fixed-dim rounded-full cyber-glow-border animate-pulse"></div>
+<div class="absolute top-3/4 left-1/4 w-3 h-3 bg-primary rounded-full cyber-glow-border animate-pulse"></div>
+<div class="absolute top-1/3 left-[80%] w-3 h-3 bg-error rounded-full cyber-glow-border animate-pulse"></div>
+</div>
+<!-- Content Overlay -->
+<div class="relative z-10 p-6 flex flex-col h-full pointer-events-none">
+<!-- Top Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 pointer-events-auto mb-6">
+<div class="glass-panel p-4 rounded-sm border-l-4 border-primary">
+<p class="text-label-sm text-slate-400 font-mono uppercase tracking-widest">Active Nodes</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-primary">1,248</span>
+<span class="text-[10px] text-primary/60 font-mono">ONLINE</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-sm border-l-4 border-primary">
+<p class="text-label-sm text-slate-400 font-mono uppercase tracking-widest">Global Throughput</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-primary">94.2</span>
+<span class="text-[10px] text-primary/60 font-mono">T/HR</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-sm border-l-4 border-tertiary-fixed-dim">
+<p class="text-label-sm text-slate-400 font-mono uppercase tracking-widest">Network Latency</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-tertiary-fixed-dim">42ms</span>
+<span class="text-[10px] text-tertiary-fixed-dim/60 font-mono">+12%</span>
+</div>
+</div>
+<div class="glass-panel p-4 rounded-sm border-l-4 border-error">
+<p class="text-label-sm text-slate-400 font-mono uppercase tracking-widest">Active Alerts</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-error">03</span>
+<span class="text-[10px] text-error/60 font-mono">CRITICAL</span>
+</div>
+</div>
+</div>
+<!-- Middle Content: Asymmetric Layout -->
+<div class="flex-1 flex gap-6">
+<!-- Left: AI Bottleneck Alert (Floating) -->
+<div class="w-80 flex flex-col gap-4 pointer-events-auto">
+<section class="glass-panel p-5 rounded-sm border-t-2 border-primary/30">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary text-sm">psychology</span>
+<h3 class="font-headline font-bold text-xs uppercase tracking-widest text-primary">AI Diagnostic</h3>
+</div>
+<div class="space-y-4">
+<div class="p-3 bg-error-container/20 rounded-sm border border-error/20">
+<p class="text-xs font-headline font-bold text-error uppercase mb-1">Bottleneck Detected</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed mb-2">Congestion at Port of Singapore (SIN-01) impacting 14.2% of South-East flow.</p>
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-mono text-error/60">Risk: High</span>
+<button class="text-[10px] font-headline font-bold uppercase text-primary border-b border-primary/30">Reroute Flow</button>
+</div>
+</div>
+<div class="p-3 bg-surface-container-high rounded-sm">
+<p class="text-xs font-headline font-bold text-tertiary uppercase mb-1">Predictive Warning</p>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">Anticipated surge at Rotterdam Terminal due to lunar cycle peak. Capacity +8%.</p>
+</div>
+</div>
+</section>
+<div class="flex-1 flex flex-col pointer-events-none">
+<!-- Visual Spacer for the Map Center -->
+</div>
+<!-- Live Connectivity Ticker -->
+<section class="glass-panel overflow-hidden pointer-events-auto py-2">
+<div class="flex items-center gap-2 px-4 border-b border-white/5 pb-2 mb-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<h3 class="text-[10px] font-mono uppercase tracking-widest text-primary/60">Live Stream</h3>
+</div>
+<div class="space-y-2 px-4 h-32 overflow-y-auto no-scrollbar font-mono text-[10px]">
+<div class="flex justify-between text-slate-400">
+<span>SIN → ROT</span>
+<span class="text-primary">420GB/s</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>SFO → SHA</span>
+<span class="text-primary">1.2TB/s</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>LHR → DXB</span>
+<span class="text-tertiary-fixed-dim">84GB/s</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>SYD → TYO</span>
+<span class="text-primary">240GB/s</span>
+</div>
+<div class="flex justify-between text-slate-400">
+<span>GRU → MAD</span>
+<span class="text-primary">115GB/s</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Right: Node Status Sidebar -->
+<div class="w-96 ml-auto pointer-events-auto">
+<section class="glass-panel h-full flex flex-col rounded-sm">
+<div class="p-5 border-b border-white/5 flex justify-between items-center">
+<h3 class="font-headline font-bold text-xs uppercase tracking-widest text-primary">Node Status</h3>
+<span class="material-symbols-outlined text-slate-500 text-sm">filter_list</span>
+</div>
+<div class="flex-1 overflow-y-auto no-scrollbar">
+<!-- Node Item -->
+<div class="p-5 border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface">Singapore Hub</h4>
+<p class="text-[10px] font-mono text-slate-500 tracking-tighter">ID: SIN-X-001</p>
+</div>
+<span class="px-2 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded-sm border border-error/20">WARNING</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Latency</p>
+<p class="text-xs font-mono text-on-surface">124ms <span class="text-error">↑</span></p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Flow Rate</p>
+<p class="text-xs font-mono text-on-surface">84.2%</p>
+</div>
+</div>
+</div>
+<!-- Node Item -->
+<div class="p-5 border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface">Rotterdam Terminal</h4>
+<p class="text-[10px] font-mono text-slate-500 tracking-tighter">ID: ROT-N-042</p>
+</div>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-sm border border-primary/20">OPTIMAL</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Latency</p>
+<p class="text-xs font-mono text-on-surface">18ms <span class="text-primary">↓</span></p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Flow Rate</p>
+<p class="text-xs font-mono text-on-surface">96.8%</p>
+</div>
+</div>
+</div>
+<!-- Node Item -->
+<div class="p-5 border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface">Shanghai Port</h4>
+<p class="text-[10px] font-mono text-slate-500 tracking-tighter">ID: SHA-E-109</p>
+</div>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded-sm border border-primary/20">OPTIMAL</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Latency</p>
+<p class="text-xs font-mono text-on-surface">32ms</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Flow Rate</p>
+<p class="text-xs font-mono text-on-surface">91.4%</p>
+</div>
+</div>
+</div>
+<!-- Node Item -->
+<div class="p-5 border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h4 class="font-headline font-bold text-sm text-on-surface">Dubai Logistics</h4>
+<p class="text-[10px] font-mono text-slate-500 tracking-tighter">ID: DXB-M-077</p>
+</div>
+<span class="px-2 py-0.5 bg-tertiary-fixed-dim/10 text-tertiary-fixed-dim text-[10px] font-bold rounded-sm border border-tertiary-fixed-dim/20">PEAK</span>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Latency</p>
+<p class="text-xs font-mono text-on-surface">45ms</p>
+</div>
+<div>
+<p class="text-[10px] text-slate-500 uppercase font-bold">Flow Rate</p>
+<p class="text-xs font-mono text-on-surface">78.0%</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low text-center">
+<button class="text-[10px] font-headline font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">View All 1,248 Nodes</button>
+</div>
+</section>
+</div>
+</div>
+<!-- Bottom Bar: Map Controls -->
+<div class="mt-6 flex justify-between items-end pointer-events-auto">
+<div class="flex gap-2">
+<button class="w-10 h-10 glass-panel flex items-center justify-center rounded-sm text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="w-10 h-10 glass-panel flex items-center justify-center rounded-sm text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="w-10 h-10 glass-panel flex items-center justify-center rounded-sm text-primary hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">layers</span>
+</button>
+</div>
+<div class="flex gap-4">
+<div class="glass-panel px-4 py-2 rounded-sm flex items-center gap-3">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[10px] font-mono text-slate-400">Normal</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="text-[10px] font-mono text-slate-400">High Load</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-[10px] font-mono text-slate-400">Critical</span>
+</div>
+</div>
+<div class="glass-panel px-4 py-2 rounded-sm text-[10px] font-mono text-primary/80">
+                            COORD: 34.0522° N, 118.2437° W
+                        </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
