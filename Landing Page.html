@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Supply Chains | Intelligent Movement</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c3f5ff",
+                        "primary-fixed-dim": "#00daf3",
+                        "primary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "secondary": "#c3c6d4",
+                        "tertiary": "#ffead2",
+                        "tertiary-fixed-dim": "#ffb950",
+                        "background": "#0f131d",
+                        "surface": "#0f131d",
+                        "surface-container-low": "#171b26",
+                        "surface-container": "#1c1f2a",
+                        "surface-container-high": "#262a35",
+                        "on-surface": "#dfe2f1",
+                        "on-surface-variant": "#bac9cc",
+                        "outline": "#849396",
+                        "outline-variant": "#3b494c",
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk"],
+                        body: ["Inter"],
+                        mono: ["Roboto Mono"]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(49, 53, 64, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(195, 245, 255, 0.1);
+        }
+
+        .cyber-glow {
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.15);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+        }
+
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(195, 245, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(195, 245, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at center, rgba(0, 229, 255, 0.1) 0%, transparent 60%);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary/30 selection:text-white">
+    <!-- Backgrounds -->
+    <div class="fixed inset-0 bg-grid z-0 pointer-events-none"></div>
+    <div class="fixed inset-0 hero-gradient z-0 pointer-events-none"></div>
+    <div class="fixed top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <div
+        class="fixed bottom-1/4 right-1/4 w-96 h-96 bg-[var(--tw-colors-tertiary-fixed-dim)]/5 rounded-full blur-[100px] pointer-events-none">
+    </div>
+
+    <!-- Top Nav Placeholder -->
+    <nav
+        class="relative z-50 w-full px-6 py-4 flex justify-between items-center bg-background/50 backdrop-blur-md border-b border-outline-variant/30">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary-container animate-pulse">public</span>
+            <span class="font-headline font-bold uppercase tracking-widest text-primary-container">Smart Supply
+                Chains</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="px-3 py-1 glass-panel rounded-full flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_10px_#00e5ff]"></span>
+                <span
+                    class="text-[10px] font-mono text-primary-container tracking-widest uppercase hide-on-mobile">System
+                    Online</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 flex-1 flex flex-col items-center justify-center p-6 pb-20">
+
+        <!-- Header Text -->
+        <div class="text-center max-w-4xl mx-auto mb-10 mt-10">
+            <h1
+                class="text-5xl md:text-7xl lg:text-8xl font-headline font-black tracking-tighter mb-6 text-on-surface text-glow uppercase leading-[1.1]">
+                🚀 Smart <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-primary-container to-blue-400">Supply
+                    Chains</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-primary font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+                Powering the future of logistics with intelligence, speed, and precision.
+            </p>
+        </div>
+
+        <!-- Description Box -->
+        <div
+            class="glass-panel p-8 md:p-12 rounded-xl mb-16 max-w-4xl cyber-glow border-t-2 border-primary/30 relative group">
+            <div
+                class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl pointer-events-none duration-500">
+            </div>
+
+            <p class="text-on-surface-variant font-light text-lg md:text-xl leading-relaxed mb-6">
+                In a world where every second matters, Smart Supply Chains transforms how goods move across the globe.
+                By combining real-time data, predictive AI, and dynamic optimization, our platform detects disruptions
+                before they happen and instantly adapts to keep deliveries on track.
+            </p>
+            <p class="text-on-surface-variant font-light text-lg md:text-xl leading-relaxed">
+                From sudden weather changes to hidden bottlenecks, we don’t just react — we anticipate, analyze, and
+                act. Experience a system that continuously learns, evolves, and ensures seamless flow across complex
+                transportation networks.
+            </p>
+
+            <div class="mt-10 pt-8 border-t border-outline-variant/30 text-center">
+                <p class="font-headline font-bold text-xl md:text-2xl text-on-surface tracking-wide">
+                    This isn’t just logistics. This is <span
+                        class="text-primary-container glow flex-inline items-center drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]">intelligent
+                        movement.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Call to Action / Core Offerings -->
+        <div class="w-full max-w-6xl mb-10">
+            <div class="flex items-center justify-center gap-4 mb-10">
+                <div class="h-[1px] bg-outline-variant/50 flex-1 max-w-[150px]"></div>
+                <h2 class="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-primary">Engage Core Modules
+                </h2>
+                <div class="h-[1px] bg-outline-variant/50 flex-1 max-w-[150px]"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+                <!-- Option 1: Overview -->
+                <a href="/overview"
+                    class="glass-panel p-8 rounded-lg hover:border-primary/80 transition-all duration-300 group hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center cyber-glow">
+                    <div
+                        class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-500 border border-outline-variant/50 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="text-4xl">⚡</span>
+                    </div>
+                    <h3
+                        class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors duration-300 uppercase tracking-tight mb-3">
+                        Smarter Decisions</h3>
+                    <p class="text-sm text-outline font-mono">Operations Dashboard</p>
+                    <div
+                        class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1">
+                        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                    </div>
+                </a>
+
+                <!-- Option 2: Tracking -->
+                <a href="/tracking"
+                    class="glass-panel p-8 rounded-lg hover:border-primary/80 transition-all duration-300 group hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center cyber-glow">
+                    <div
+                        class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-500 border border-outline-variant/50 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="text-4xl">🌍</span>
+                    </div>
+                    <h3
+                        class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors duration-300 uppercase tracking-tight mb-3">
+                        Real-Time Visibility</h3>
+                    <p class="text-sm text-outline font-mono">Global Network Flow</p>
+                    <div
+                        class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1">
+                        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                    </div>
+                </a>
+
+                <!-- Option 3: Logistics -->
+                <a href="/logistics"
+                    class="glass-panel p-8 rounded-lg hover:border-primary/80 transition-all duration-300 group hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center cyber-glow">
+                    <div
+                        class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-500 border border-outline-variant/50 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="text-4xl">🔄</span>
+                    </div>
+                    <h3
+                        class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors duration-300 uppercase tracking-tight mb-3">
+                        Instant Optimization</h3>
+                    <p class="text-sm text-outline font-mono">Dynamic Logistics & Routes</p>
+                    <div
+                        class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1">
+                        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                    </div>
+                </a>
+
+                <!-- Option 4: Insights -->
+                <a href="/insights"
+                    class="glass-panel p-8 rounded-lg hover:border-primary/80 transition-all duration-300 group hover:-translate-y-2 cursor-pointer flex flex-col items-center text-center cyber-glow">
+                    <div
+                        class="w-20 h-20 rounded-full bg-surface-container-high flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-500 border border-outline-variant/50 group-hover:border-primary/50 group-hover:shadow-[0_0_20px_rgba(0,229,255,0.4)]">
+                        <span class="text-4xl">🧠</span>
+                    </div>
+                    <h3
+                        class="font-headline font-bold text-xl text-on-surface group-hover:text-primary transition-colors duration-300 uppercase tracking-tight mb-3">
+                        AI-Driven Insights</h3>
+                    <p class="text-sm text-outline font-mono">Predictive Analytics Engine</p>
+                    <div
+                        class="mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1">
+                        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer
+        class="relative z-10 py-6 border-t border-outline-variant/30 mt-auto text-center bg-background/50 backdrop-blur-sm">
+        <p class="text-[10px] md:text-xs font-mono text-outline tracking-widest">v2.0.4 // KINETIC TERMINAL // SMART
+            SUPPLY CHAINS SYSTEM</p>
+    </footer>
+</body>
+
+</html>
