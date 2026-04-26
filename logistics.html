@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Shipment Detail &amp; Timeline | Smart Supply Chains</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#c3f5ff",
+                        "outline": "#849396",
+                        "inverse-surface": "#dfe2f1",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#dfe2f1",
+                        "on-error": "#690005",
+                        "surface-container-high": "#262a35",
+                        "on-secondary-fixed": "#171b26",
+                        "surface-container-highest": "#313540",
+                        "surface-container-lowest": "#0a0e18",
+                        "on-tertiary": "#452b00",
+                        "tertiary-fixed": "#ffddb3",
+                        "surface-container-low": "#171b26",
+                        "on-primary-fixed-variant": "#004f58",
+                        "surface-variant": "#313540",
+                        "primary-fixed": "#9cf0ff",
+                        "inverse-on-surface": "#2c303b",
+                        "on-primary-fixed": "#001f24",
+                        "surface-bright": "#353944",
+                        "secondary-container": "#454955",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#00daf3",
+                        "tertiary": "#ffead2",
+                        "on-tertiary-container": "#7b5000",
+                        "primary-fixed-dim": "#00daf3",
+                        "outline-variant": "#3b494c",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "tertiary-fixed-dim": "#ffb950",
+                        "secondary-fixed-dim": "#c3c6d4",
+                        "inverse-primary": "#006875",
+                        "on-surface": "#dfe2f1",
+                        "on-secondary": "#2c303b",
+                        "background": "#0f131d",
+                        "surface": "#0f131d",
+                        "on-surface-variant": "#bac9cc",
+                        "secondary": "#c3c6d4",
+                        "on-secondary-fixed-variant": "#434652",
+                        "on-background": "#dfe2f1",
+                        "tertiary-container": "#ffc779",
+                        "on-primary-container": "#00626e",
+                        "on-primary": "#00363d",
+                        "on-secondary-container": "#b5b8c6",
+                        "primary-container": "#00e5ff",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container": "#1c1f2a",
+                        "surface-dim": "#0f131d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["Roboto Mono"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-headline {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(53, 57, 68, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(195, 245, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-hidden">
+    <div class="flex h-screen overflow-hidden">
+        <!-- SideNavBar -->
+        <aside class="hidden md:flex flex-col h-full py-8 bg-slate-950 w-64 transition-all duration-200 ease-in-out">
+            <div class="px-6 mb-10 flex items-center gap-3">
+                <div class="w-8 h-8 bg-primary-container flex items-center justify-center rounded-sm">
+                    <span class="material-symbols-outlined text-on-primary-container text-xl"
+                        style="font-variation-settings: 'FILL' 1;">terminal</span>
+                </div>
+                <div>
+                    <h2 class="text-sm font-bold font-headline tracking-tight text-on-surface">Terminal</h2>
+                    <p class="text-[10px] text-slate-500 font-mono">V2.0.4</p>
+                </div>
+            </div>
+            <nav class="flex-1 px-4 space-y-2">
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 transition-all font-medium text-sm"
+                    href="dashboard.html">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Overview
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-cyan-400 bg-cyan-500/5 border-r-2 border-cyan-400 transition-all font-medium text-sm"
+                    href="logistics.html">
+                    <span class="material-symbols-outlined">map</span>
+                    Logistics
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 transition-all font-medium text-sm"
+                    href="analytics.html">
+                    <span class="material-symbols-outlined">psychology</span>
+                    Insights
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 transition-all font-medium text-sm"
+                    href="tracking.html">
+                    <span class="material-symbols-outlined">local_shipping</span>
+                    Tracking
+                </a>
+            </nav>
+            <div class="px-8 mt-6">
+                <button
+                    class="w-full bg-primary-container text-on-primary-container font-bold py-3 text-xs uppercase tracking-widest rounded-sm shadow-[0_4px_12px_rgba(0,229,255,0.2)] hover:scale-105 active:scale-95 transition-transform">
+                    Generate Report
+                </button>
+            </div>
+            <footer class="mt-auto px-4 space-y-2">
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 transition-all font-medium text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 transition-all font-medium text-sm"
+                    href="#">
+                    <span class="material-symbols-outlined">contact_support</span>
+                    Support
+                </a>
+            </footer>
+        </aside>
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col min-w-0 bg-background overflow-hidden">
+            <!-- TopNavBar -->
+            <header
+                class="flex justify-between items-center w-full px-6 h-16 bg-slate-900/40 backdrop-blur-xl z-50 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+                <div class="flex items-center gap-8">
+                    <h1 class="text-xl font-bold tracking-tighter text-cyan-400 uppercase font-headline">Smart Supply
+                        Chains</h1>
+                    <div class="relative hidden lg:block">
+                        <span
+                            class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-slate-400 text-sm">search</span>
+                        <input
+                            class="bg-slate-800/50 border-none rounded-sm pl-10 pr-4 py-1.5 text-xs text-on-surface focus:ring-1 focus:ring-cyan-400/40 w-64 transition-all"
+                            placeholder="Search manifest ID..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm active:scale-90">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm active:scale-90">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm active:scale-90">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                    <div
+                        class="h-8 w-8 ml-2 rounded-full border border-cyan-400/30 overflow-hidden bg-surface-container">
+                        <img alt="User profile photo" class="w-full h-full object-cover"
+                            data-alt="close up headshot of a professional supply chain manager in a modern office with tech background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOu4Da4guk7BsUgc3tGUuXwfdArF6bj3tny3seRITPgSt9oumvAvRR6lwNyh1FXrjObQ3Xcf5CirV4GKHQauYQmDtAwLBSOtU-VT4kTgI2YN9epO732mlzdXrGl8df25GM3jQtTZWm9jA4tQ6lkB8K2rF5OmrBMewECaZwsmVGAnyFEpkEbf6fmj9i6yzWdkolnYiur3iWZlnN7O-MMM-9cV6H3Hyy6yU8UMAYjoJC_L0hEXed0R7WCKvpv42hBpiUFGz9C15r6uE" />
+                    </div>
+                </div>
+            </header>
+            <!-- Scrollable Content Canvas -->
+            <main class="flex-1 overflow-y-auto p-6 space-y-8 scroll-smooth">
+                <!-- Shipment Header Block -->
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span
+                                class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase rounded-sm tracking-widest">High
+                                Priority</span>
+                            <span class="text-primary-fixed-dim font-mono text-sm tracking-widest">ID #SSC-9042</span>
+                        </div>
+                        <h2 class="text-4xl font-headline font-bold text-on-surface tracking-tighter">Liquid Nitrogen
+                            Turbines</h2>
+                        <p class="text-on-surface-variant text-sm mt-1">Manifested from <span
+                                class="text-on-surface font-semibold">Oslo, Norway</span> to <span
+                                class="text-on-surface font-semibold">Singapore</span></p>
+                    </div>
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-xs font-semibold flex items-center gap-2 transition-colors">
+                            <span class="material-symbols-outlined text-lg">print</span> Print Waybill
+                        </button>
+                        <button
+                            class="px-4 py-2 bg-primary-container text-on-primary-container text-xs font-bold flex items-center gap-2 transition-transform active:scale-95 shadow-[0_8px_16px_rgba(0,229,255,0.15)]">
+                            <span class="material-symbols-outlined text-lg"
+                                style="font-variation-settings: 'FILL' 1;">share</span> Broadcast Updates
+                        </button>
+                    </div>
+                </div>
+                <!-- KPI Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="p-6 bg-surface-container-low border-t border-primary/10">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Status</p>
+                        <p class="text-2xl font-headline font-semibold text-cyan-400">In Transit</p>
+                        <div class="mt-4 flex items-center gap-2">
+                            <div class="h-1.5 flex-1 bg-surface-container-highest overflow-hidden">
+                                <div class="h-full bg-cyan-400 w-3/4"></div>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-400">75%</span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-surface-container-low border-t border-white/5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Estimated Arrival
+                        </p>
+                        <p class="text-2xl font-headline font-semibold text-on-surface">Oct 24, 14:00</p>
+                        <p class="text-[10px] text-tertiary-fixed-dim mt-2 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-xs">schedule</span> On Schedule (AI Adjusted)
+                        </p>
+                    </div>
+                    <div class="p-6 bg-surface-container-low border-t border-white/5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Current
+                            Temperature</p>
+                        <p class="text-2xl font-headline font-semibold text-on-surface">-196.2°C</p>
+                        <p class="text-[10px] text-cyan-400/60 mt-2 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-xs">ac_unit</span> Within Threshold
+                        </p>
+                    </div>
+                    <div class="p-6 bg-surface-container-low border-t border-white/5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Risk Profile</p>
+                        <p class="text-2xl font-headline font-semibold text-on-surface">Minimal</p>
+                        <p class="text-[10px] text-slate-500 mt-2">Diverted from Storm Delta</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Tracking Timeline -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-headline font-bold text-xl text-on-surface tracking-tight">Active Journey
+                                Timeline</h3>
+                            <span class="text-[10px] font-mono text-slate-500">REAL-TIME TELEMETRY ACTIVE</span>
+                        </div>
+                        <div
+                            class="relative pl-8 space-y-12 before:content-[''] before:absolute before:left-3 before:top-2 before:bottom-2 before:w-[1px] before:bg-slate-800">
+                            <!-- Milestone: Manifested -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-8 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[14px] text-slate-500">check</span>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-on-surface">Manifested</h4>
+                                        <p class="text-xs text-slate-500 mt-1">Port of Oslo, Terminal A4. Digital twin
+                                            verified.</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] font-mono text-slate-400 uppercase">Oct 18, 08:22</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone: Cleared Customs -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-8 top-1.5 w-6 h-6 rounded-full bg-slate-900 border-2 border-slate-700 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-[14px] text-slate-500">check</span>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-on-surface">Cleared Customs</h4>
+                                        <p class="text-xs text-slate-500 mt-1">Export clearance automated via Smart
+                                            Ledger.</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] font-mono text-slate-400 uppercase">Oct 19, 11:45</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone: AI Risk Detected (Alert) -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-8 top-1.5 w-6 h-6 rounded-full bg-tertiary-container border-2 border-tertiary flex items-center justify-center shadow-[0_0_15px_rgba(255,200,121,0.3)]">
+                                    <span
+                                        class="material-symbols-outlined text-[14px] text-on-tertiary-container font-bold">warning</span>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div
+                                        class="p-4 bg-tertiary-container/10 border-l-2 border-tertiary-container rounded-sm">
+                                        <h4 class="text-sm font-bold text-tertiary">AI Risk Detected - Rerouted</h4>
+                                        <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Atmospheric
+                                            turbulence anomaly detected in Bay of Biscay. Route shifted +14° North. Fuel
+                                            consumption optimized (+2%).</p>
+                                        <div class="mt-3 flex gap-2">
+                                            <span
+                                                class="px-2 py-0.5 bg-slate-900 text-[9px] font-bold text-tertiary rounded-sm">ADAPTIVE_ROUTE_402</span>
+                                            <span
+                                                class="px-2 py-0.5 bg-slate-900 text-[9px] font-bold text-cyan-400 rounded-sm">AUTO_RESOLVED</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] font-mono text-tertiary uppercase">Oct 21, 04:30</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone: In Transit (Current) -->
+                            <div class="relative">
+                                <div
+                                    class="absolute -left-8 top-1.5 w-6 h-6 rounded-full bg-cyan-400 flex items-center justify-center shadow-[0_0_12px_rgba(0,229,255,0.4)]">
+                                    <span
+                                        class="material-symbols-outlined text-[14px] text-on-primary font-bold">local_shipping</span>
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-cyan-400">In Transit</h4>
+                                        <p class="text-xs text-on-surface-variant mt-1">Vessel: <i>MS Arctica
+                                                Intelligence</i>. Currently off the coast of Gibraltar.</p>
+                                        <div
+                                            class="mt-4 h-48 w-full bg-surface-container-high rounded-sm overflow-hidden relative">
+                                            <img alt="Live location map" class="w-full h-full object-cover opacity-60"
+                                                data-alt="satellite view map of the strait of gibraltar with glowing blue shipping routes and a single vessel icon"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe0MScXmUaTO2KDlzbmXYure4RgqnCcyNdHYYC-8sIDT5lUZm5zl61Jscq_IpyjNB0ooU0ReZZAtZNyS-M-gRviEUQnOvfJt2MJO6mhlEYdOdre1BleYGIX2DvnHCy5mwgGd6XT22LgyQ2UXRz2yeBbZegD1cSKgQCWDxL84yVyx3Nc2niSNpYytYr35qdM8XmusElO-VH4zGeknc7V_FX-eHMp_qvTQNsdW5xiMzSn-eKPJ5sM2yBZKj7jU3-c9P0l6BQHLuAlQo" />
+                                            <div
+                                                class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent">
+                                            </div>
+                                            <div class="absolute bottom-4 left-4 flex items-center gap-2">
+                                                <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                                                <span
+                                                    class="text-[10px] font-mono text-on-surface tracking-tighter">LIVE_POSITION:
+                                                    36.1408° N, 5.3536° W</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] font-mono text-cyan-400 uppercase">CURRENT</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Milestone: Pending -->
+                            <div class="relative opacity-30">
+                                <div
+                                    class="absolute -left-8 top-1.5 w-6 h-6 rounded-full border-2 border-slate-700 flex items-center justify-center">
+                                </div>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-sm font-bold text-slate-500">Destination Arrival</h4>
+                                        <p class="text-xs text-slate-600 mt-1">Singapore Port Authority - Berth 7</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <p class="text-[10px] font-mono text-slate-600 uppercase">EST OCT 24</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Side Analytics / Predictive Insights -->
+                    <div class="space-y-8">
+                        <!-- Predictive Insights Glass Card -->
+                        <div class="glass-panel p-6 rounded-sm space-y-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-cyan-400 text-lg">psychology</span>
+                                <h3 class="font-headline font-bold text-lg text-on-surface">Predictive Logic</h3>
+                            </div>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Our Neural Engine redirected this shipment to avoid <span
+                                    class="text-tertiary">Atmospheric Anomaly Delta</span>. This decision was based on
+                                14.2 petabytes of historical weather patterns and real-time sensor data from vessels in
+                                the 100km radius.
+                            </p>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex justify-between items-center text-[11px]">
+                                    <span class="text-slate-500">Decision Confidence</span>
+                                    <span class="text-cyan-400 font-mono">98.4%</span>
+                                </div>
+                                <div class="h-1 bg-surface-container-highest">
+                                    <div class="h-full bg-cyan-400" style="width: 98.4%"></div>
+                                </div>
+                                <div class="flex justify-between items-center text-[11px]">
+                                    <span class="text-slate-500">Cost Impact</span>
+                                    <span class="text-tertiary font-mono">+$420.00</span>
+                                </div>
+                                <div class="h-1 bg-surface-container-highest">
+                                    <div class="h-full bg-tertiary" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div class="pt-4 border-t border-white/5">
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">AI
+                                    Reasoning Chain</p>
+                                <ul class="space-y-2 text-[11px]">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan-400">01</span>
+                                        <span class="text-on-surface-variant">Wave height projection exceeded 4.5m
+                                            safety limit for Nitrogen cooling.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan-400">02</span>
+                                        <span class="text-on-surface-variant">Fuel optimization suggests mid-throttle
+                                            north detour.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan-400">03</span>
+                                        <span class="text-on-surface-variant">Congestion at Suez Canal bypass prevents
+                                            southern alternative.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Technical Specs Card -->
+                        <div class="bg-surface-container p-6 rounded-sm border-l-2 border-primary/20">
+                            <h3 class="font-headline font-bold text-sm text-on-surface mb-4 uppercase tracking-wider">
+                                Cargo Telemetry</h3>
+                            <div class="space-y-4">
+                                <div class="flex justify-between group">
+                                    <span
+                                        class="text-xs text-slate-500 group-hover:text-slate-300 transition-colors">Internal
+                                        Pressure</span>
+                                    <span class="text-xs font-mono text-on-surface">1.2 Bar</span>
+                                </div>
+                                <div class="flex justify-between group">
+                                    <span
+                                        class="text-xs text-slate-500 group-hover:text-slate-300 transition-colors">Vibration
+                                        Index</span>
+                                    <span class="text-xs font-mono text-on-surface">0.02 G</span>
+                                </div>
+                                <div class="flex justify-between group">
+                                    <span
+                                        class="text-xs text-slate-500 group-hover:text-slate-300 transition-colors">Humidity
+                                        Level</span>
+                                    <span class="text-xs font-mono text-on-surface">0.4%</span>
+                                </div>
+                                <div class="flex justify-between group">
+                                    <span
+                                        class="text-xs text-slate-500 group-hover:text-slate-300 transition-colors">Geofence
+                                        Status</span>
+                                    <span class="text-xs font-mono text-cyan-400">Locked</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Document Preview Card -->
+                        <div
+                            class="p-4 bg-surface-container-low border border-white/5 rounded-sm flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-surface-container-highest flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-slate-400">description</span>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-on-surface">Hazardous_Cert_A.pdf</p>
+                                    <p class="text-[10px] text-slate-500">Digital Signature Verified</p>
+                                </div>
+                            </div>
+                            <button class="p-2 text-slate-400 hover:text-cyan-400">
+                                <span class="material-symbols-outlined">download</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>

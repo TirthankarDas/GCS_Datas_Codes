@@ -1,481 +1,588 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Smart Supply Chains - Terminal</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "primary": "#c3f5ff",
-                    "outline": "#849396",
-                    "inverse-surface": "#dfe2f1",
-                    "error-container": "#93000a",
-                    "secondary-fixed": "#dfe2f1",
-                    "on-error": "#690005",
-                    "surface-container-high": "#262a35",
-                    "on-secondary-fixed": "#171b26",
-                    "surface-container-highest": "#313540",
-                    "surface-container-lowest": "#0a0e18",
-                    "on-tertiary": "#452b00",
-                    "tertiary-fixed": "#ffddb3",
-                    "surface-container-low": "#171b26",
-                    "on-primary-fixed-variant": "#004f58",
-                    "surface-variant": "#313540",
-                    "primary-fixed": "#9cf0ff",
-                    "inverse-on-surface": "#2c303b",
-                    "on-primary-fixed": "#001f24",
-                    "surface-bright": "#353944",
-                    "secondary-container": "#454955",
-                    "on-error-container": "#ffdad6",
-                    "error": "#ffb4ab",
-                    "surface-tint": "#00daf3",
-                    "tertiary": "#ffead2",
-                    "on-tertiary-container": "#7b5000",
-                    "primary-fixed-dim": "#00daf3",
-                    "outline-variant": "#3b494c",
-                    "on-tertiary-fixed-variant": "#624000",
-                    "tertiary-fixed-dim": "#ffb950",
-                    "secondary-fixed-dim": "#c3c6d4",
-                    "inverse-primary": "#006875",
-                    "on-surface": "#dfe2f1",
-                    "on-secondary": "#2c303b",
-                    "background": "#0f131d",
-                    "surface": "#0f131d",
-                    "on-surface-variant": "#bac9cc",
-                    "secondary": "#c3c6d4",
-                    "on-secondary-fixed-variant": "#434652",
-                    "on-background": "#dfe2f1",
-                    "tertiary-container": "#ffc779",
-                    "on-primary-container": "#00626e",
-                    "on-primary": "#00363d",
-                    "on-secondary-container": "#b5b8c6",
-                    "primary-container": "#00e5ff",
-                    "on-tertiary-fixed": "#291800",
-                    "surface-container": "#1c1f2a",
-                    "surface-dim": "#0f131d"
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Smart Supply Chains - Terminal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Roboto+Mono&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#c3f5ff",
+                        "outline": "#849396",
+                        "inverse-surface": "#dfe2f1",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#dfe2f1",
+                        "on-error": "#690005",
+                        "surface-container-high": "#262a35",
+                        "on-secondary-fixed": "#171b26",
+                        "surface-container-highest": "#313540",
+                        "surface-container-lowest": "#0a0e18",
+                        "on-tertiary": "#452b00",
+                        "tertiary-fixed": "#ffddb3",
+                        "surface-container-low": "#171b26",
+                        "on-primary-fixed-variant": "#004f58",
+                        "surface-variant": "#313540",
+                        "primary-fixed": "#9cf0ff",
+                        "inverse-on-surface": "#2c303b",
+                        "on-primary-fixed": "#001f24",
+                        "surface-bright": "#353944",
+                        "secondary-container": "#454955",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-tint": "#00daf3",
+                        "tertiary": "#ffead2",
+                        "on-tertiary-container": "#7b5000",
+                        "primary-fixed-dim": "#00daf3",
+                        "outline-variant": "#3b494c",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "tertiary-fixed-dim": "#ffb950",
+                        "secondary-fixed-dim": "#c3c6d4",
+                        "inverse-primary": "#006875",
+                        "on-surface": "#dfe2f1",
+                        "on-secondary": "#2c303b",
+                        "background": "#0f131d",
+                        "surface": "#0f131d",
+                        "on-surface-variant": "#bac9cc",
+                        "secondary": "#c3c6d4",
+                        "on-secondary-fixed-variant": "#434652",
+                        "on-background": "#dfe2f1",
+                        "tertiary-container": "#ffc779",
+                        "on-primary-container": "#00626e",
+                        "on-primary": "#00363d",
+                        "on-secondary-container": "#b5b8c6",
+                        "primary-container": "#00e5ff",
+                        "on-tertiary-fixed": "#291800",
+                        "surface-container": "#1c1f2a",
+                        "surface-dim": "#0f131d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["Roboto Mono"]
+                    }
+                },
             },
-            "borderRadius": {
-                    "DEFAULT": "0.125rem",
-                    "lg": "0.25rem",
-                    "xl": "0.5rem",
-                    "full": "0.75rem"
-            },
-            "fontFamily": {
-                    "headline": ["Space Grotesk"],
-                    "body": ["Inter"],
-                    "label": ["Inter"],
-                    "mono": ["Roboto Mono"]
-            }
-          },
-        },
-      }
+        }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+
         .glass-panel {
             background: rgba(49, 53, 64, 0.4);
             backdrop-filter: blur(20px);
             border-top: 1px solid rgba(195, 245, 255, 0.05);
         }
+
         .cyber-glow {
             box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
         }
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
     </style>
 </head>
+
 <body class="bg-background text-on-background font-body selection:bg-primary/30">
-<!-- SideNavBar (Left) -->
-<aside class="fixed left-0 top-0 h-screen w-64 bg-slate-950 flex flex-col py-8 z-40 hidden md:flex">
-<div class="px-6 mb-12 flex items-center gap-3">
-<div class="w-10 h-10 bg-primary-container rounded-sm flex items-center justify-center">
-<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">terminal</span>
-</div>
-<div>
-<h2 class="font-headline font-bold text-on-surface leading-tight">Terminal</h2>
-<p class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">V2.0.4</p>
-</div>
-</div>
-<nav class="flex-1 space-y-1">
-<a class="flex items-center px-6 py-3 text-cyan-400 bg-cyan-500/5 border-r-2 border-cyan-400 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+    <!-- SideNavBar (Left) -->
+    <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-950 flex flex-col py-8 z-40 hidden md:flex">
+        <div class="px-6 mb-12 flex items-center gap-3">
+            <div class="w-10 h-10 bg-primary-container rounded-sm flex items-center justify-center">
+                <span class="material-symbols-outlined text-on-primary-container"
+                    style="font-variation-settings: 'FILL' 1;">terminal</span>
+            </div>
+            <div>
+                <h2 class="font-headline font-bold text-on-surface leading-tight">Terminal</h2>
+                <p class="text-[10px] font-mono text-slate-500 tracking-widest uppercase">V2.0.4</p>
+            </div>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center px-6 py-3 text-cyan-400 bg-cyan-500/5 border-r-2 border-cyan-400 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out"
+                href="dashboard.html">
+                <span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 1;">dashboard</span>
                 Overview
             </a>
-<a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined mr-3">map</span>
+            <a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out"
+                href="logistics.html">
+                <span class="material-symbols-outlined mr-3">map</span>
                 Logistics
             </a>
-<a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined mr-3">psychology</span>
-                Insights
+            <a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out"
+                href="analytics.html">
+                <span class="material-symbols-outlined mr-3">psychology</span>
+                Analytics
             </a>
-<a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out" href="#">
-<span class="material-symbols-outlined mr-3">local_shipping</span>
+            <a class="flex items-center px-6 py-3 text-slate-500 hover:text-cyan-300 hover:bg-slate-900 font-['Inter'] text-sm font-medium transition-all duration-200 ease-in-out"
+                href="tracking.html">
+                <span class="material-symbols-outlined mr-3">local_shipping</span>
                 Tracking
             </a>
-</nav>
-<div class="px-6 mt-auto space-y-1">
-<button class="w-full mb-8 py-3 bg-primary-container text-on-primary-container font-headline font-bold text-sm tracking-tight rounded-sm hover:brightness-110 active:scale-95 transition-all">
+        </nav>
+        <div class="px-6 mt-auto space-y-1">
+            <button
+                class="w-full mb-8 py-3 bg-primary-container text-on-primary-container font-headline font-bold text-sm tracking-tight rounded-sm hover:brightness-110 active:scale-95 transition-all">
                 Generate Report
             </button>
-<a class="flex items-center py-2 text-slate-500 hover:text-cyan-300 transition-colors text-sm font-medium" href="#">
-<span class="material-symbols-outlined mr-3">settings</span>
+            <a class="flex items-center py-2 text-slate-500 hover:text-cyan-300 transition-colors text-sm font-medium"
+                href="#">
+                <span class="material-symbols-outlined mr-3">settings</span>
                 Settings
             </a>
-<a class="flex items-center py-2 text-slate-500 hover:text-cyan-300 transition-colors text-sm font-medium" href="#">
-<span class="material-symbols-outlined mr-3">contact_support</span>
+            <a class="flex items-center py-2 text-slate-500 hover:text-cyan-300 transition-colors text-sm font-medium"
+                href="#">
+                <span class="material-symbols-outlined mr-3">contact_support</span>
                 Support
             </a>
-</div>
-</aside>
-<!-- Main Content Area -->
-<main class="md:ml-64 min-h-screen flex flex-col relative">
-<!-- TopNavBar (Top) -->
-<header class="sticky top-0 z-50 bg-slate-900/40 backdrop-blur-xl flex justify-between items-center w-full px-6 h-16 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
-<div class="flex items-center gap-6">
-<h1 class="text-xl font-bold tracking-tighter text-cyan-400 uppercase font-['Space_Grotesk']">Smart Supply Chains</h1>
-<div class="hidden lg:flex bg-slate-800/50 rounded-sm px-3 py-1.5 items-center gap-2 w-96">
-<span class="material-symbols-outlined text-slate-400 text-lg">search</span>
-<input class="bg-transparent border-none text-sm text-on-surface focus:ring-0 w-full placeholder:text-slate-500" placeholder="Search logistics IDs, vessels, or nodes..." type="text"/>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 pr-4 border-r border-slate-800">
-<button class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
-<span class="material-symbols-outlined">notifications</span>
-</button>
-<button class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
-<span class="material-symbols-outlined">settings</span>
-</button>
-<button class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
-<span class="material-symbols-outlined">help_outline</span>
-</button>
-</div>
-<div class="flex items-center gap-3 pl-2">
-<div class="text-right hidden sm:block">
-<p class="text-sm font-bold text-on-surface leading-none">Commander Alpha</p>
-<p class="text-[10px] text-primary uppercase tracking-widest font-mono">Operations Level 4</p>
-</div>
-<img alt="User profile photo" class="w-9 h-9 rounded-sm border border-cyan-400/30 object-cover" data-alt="Professional male profile portrait in high-tech setting with blue neon backlighting and sharp cinematic focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMpYMpzI2VSyWJU-rsc4Y_6JCZk5U_HoWc_uA74Xp9G-ZXpXvwvWFeq_Ghiu-21AxponWSmEPmPcZ3Aqchr65QiLSGZAa5GcI4_IX0Fj_Leunb0fSrKVSQsGAPQGmWfP2Hr4dqS2hklH_K_o2rJ5CUS4nG93kztLuyOkRG1yIaxfIKwAafnOxqEge9O1KAe0G8oPRugFzpwA6gvMRPjtl6_qrUk9t-A-yUXANbK9_ZoD8icDWOQIcKFJbsY_IkhmbvnsZrOL1_VA"/>
-</div>
-</div>
-</header>
-<!-- Page Content -->
-<div class="flex-1 p-6 space-y-6">
-<!-- Hero Section: Kinetic Logistics Network -->
-<section class="relative h-[400px] w-full rounded-lg overflow-hidden bg-surface-container-lowest group">
-<div class="absolute inset-0 z-0 bg-slate-950">
-<div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent"></div>
-<!-- Mock representation of "Animated Network" using background imagery and overlays -->
-<img alt="Animated Logistics Network" class="w-full h-full object-cover opacity-30 mix-blend-screen" data-alt="Abstract futuristic global map with glowing digital connections, glowing lines between cities on a dark blue tech grid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn9H7pY9qGhecPkcJbQlTsccf9z3B1tSAGZRPdprZaWDIupg50g3uZ_jSmnzOnE3CRnI5r5cVmkG36EIaLhSlbIknwWEzy-K48gK8PwQ9ydBdNkhXJAuPX5gGugFkX5uMRnt1sTZnEe7BvJcAg9tFjhRHu7YUwqppNkrCW8swTJiZImxFLoYC6wUbWAALGNGzfIumUjnJYbs-Edejf10w25rcsKBfM6NpUvrUWLCnkKy9-CUVUGvXflkTTNgzJDJgiOtcI0RvzjuM"/>
-<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-</div>
-<div class="absolute inset-0 z-10 flex flex-col justify-end p-8 max-w-2xl">
-<span class="inline-block px-2 py-1 mb-4 bg-primary/10 text-primary font-mono text-[10px] uppercase tracking-widest border border-primary/20">System Status: Active Optimization</span>
-<h2 class="text-5xl font-headline font-extrabold text-on-surface tracking-tighter mb-4 leading-none uppercase">Global Network <span class="text-primary">Sync</span></h2>
-<p class="text-lg text-on-surface-variant font-light mb-6">Real-time synchronization active across 482 active nodes. AI is currently re-routing 12 freight clusters to avoid Atlantic storms.</p>
-<div class="flex gap-4">
-<button class="px-6 py-2.5 bg-primary-container text-on-primary-container font-headline font-bold rounded-sm shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform">
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="md:ml-64 min-h-screen flex flex-col relative">
+        <!-- TopNavBar (Top) -->
+        <header
+            class="sticky top-0 z-50 bg-slate-900/40 backdrop-blur-xl flex justify-between items-center w-full px-6 h-16 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-6">
+                <h1 class="text-xl font-bold tracking-tighter text-cyan-400 uppercase font-['Space_Grotesk']">Smart
+                    Supply Chains</h1>
+                <div class="hidden lg:flex bg-slate-800/50 rounded-sm px-3 py-1.5 items-center gap-2 w-96">
+                    <span class="material-symbols-outlined text-slate-400 text-lg">search</span>
+                    <input
+                        class="bg-transparent border-none text-sm text-on-surface focus:ring-0 w-full placeholder:text-slate-500"
+                        placeholder="Search logistics IDs, vessels, or nodes..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 pr-4 border-r border-slate-800">
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
+                        <span class="material-symbols-outlined">settings</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-400 hover:bg-cyan-500/10 transition-colors rounded-sm scale-95 active:scale-90">
+                        <span class="material-symbols-outlined">help_outline</span>
+                    </button>
+                </div>
+                <div class="flex items-center gap-3 pl-2">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-bold text-on-surface leading-none">Commander Alpha</p>
+                        <p class="text-[10px] text-primary uppercase tracking-widest font-mono">Operations Level 4</p>
+                    </div>
+                    <img alt="User profile photo" class="w-9 h-9 rounded-sm border border-cyan-400/30 object-cover"
+                        data-alt="Professional male profile portrait in high-tech setting with blue neon backlighting and sharp cinematic focus"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMpYMpzI2VSyWJU-rsc4Y_6JCZk5U_HoWc_uA74Xp9G-ZXpXvwvWFeq_Ghiu-21AxponWSmEPmPcZ3Aqchr65QiLSGZAa5GcI4_IX0Fj_Leunb0fSrKVSQsGAPQGmWfP2Hr4dqS2hklH_K_o2rJ5CUS4nG93kztLuyOkRG1yIaxfIKwAafnOxqEge9O1KAe0G8oPRugFzpwA6gvMRPjtl6_qrUk9t-A-yUXANbK9_ZoD8icDWOQIcKFJbsY_IkhmbvnsZrOL1_VA" />
+                </div>
+            </div>
+        </header>
+        <!-- Page Content -->
+        <div class="flex-1 p-6 space-y-6">
+            <!-- Hero Section: Kinetic Logistics Network -->
+            <section class="relative h-[400px] w-full rounded-lg overflow-hidden bg-surface-container-lowest group">
+                <div class="absolute inset-0 z-0 bg-slate-950">
+                    <div
+                        class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent">
+                    </div>
+                    <!-- Mock representation of "Animated Network" using background imagery and overlays -->
+                    <img alt="Animated Logistics Network" class="w-full h-full object-cover opacity-30 mix-blend-screen"
+                        data-alt="Abstract futuristic global map with glowing digital connections, glowing lines between cities on a dark blue tech grid"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn9H7pY9qGhecPkcJbQlTsccf9z3B1tSAGZRPdprZaWDIupg50g3uZ_jSmnzOnE3CRnI5r5cVmkG36EIaLhSlbIknwWEzy-K48gK8PwQ9ydBdNkhXJAuPX5gGugFkX5uMRnt1sTZnEe7BvJcAg9tFjhRHu7YUwqppNkrCW8swTJiZImxFLoYC6wUbWAALGNGzfIumUjnJYbs-Edejf10w25rcsKBfM6NpUvrUWLCnkKy9-CUVUGvXflkTTNgzJDJgiOtcI0RvzjuM" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                </div>
+                <div class="absolute inset-0 z-10 flex flex-col justify-end p-8 max-w-2xl">
+                    <span
+                        class="inline-block px-2 py-1 mb-4 bg-primary/10 text-primary font-mono text-[10px] uppercase tracking-widest border border-primary/20">System
+                        Status: Active Optimization</span>
+                    <h2
+                        class="text-5xl font-headline font-extrabold text-on-surface tracking-tighter mb-4 leading-none uppercase">
+                        Global Network <span class="text-primary">Sync</span></h2>
+                    <p class="text-lg text-on-surface-variant font-light mb-6">Real-time synchronization active across
+                        482 active nodes. AI is currently re-routing 12 freight clusters to avoid Atlantic storms.</p>
+                    <div class="flex gap-4">
+                        <button
+                            class="px-6 py-2.5 bg-primary-container text-on-primary-container font-headline font-bold rounded-sm shadow-lg shadow-cyan-500/20 hover:scale-105 transition-transform">
                             VIEW LIVE FEED
                         </button>
-<button class="px-6 py-2.5 border border-outline-variant/40 text-on-surface font-headline font-bold rounded-sm backdrop-blur-md hover:bg-surface-bright transition-colors">
+                        <button
+                            class="px-6 py-2.5 border border-outline-variant/40 text-on-surface font-headline font-bold rounded-sm backdrop-blur-md hover:bg-surface-bright transition-colors">
                             NETWORK SETTINGS
                         </button>
-</div>
-</div>
-<!-- Floating Data Tag Overlay -->
-<div class="absolute top-8 right-8 z-10 space-y-4 hidden lg:block">
-<div class="glass-panel p-4 rounded-sm border-l-2 border-primary cyber-glow">
-<p class="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">Throughput</p>
-<p class="text-2xl font-headline font-bold text-on-surface">1.2M <span class="text-sm font-normal text-primary">units/h</span></p>
-</div>
-<div class="glass-panel p-4 rounded-sm border-l-2 border-tertiary">
-<p class="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">Active Nodes</p>
-<p class="text-2xl font-headline font-bold text-on-surface">94% <span class="text-sm font-normal text-tertiary">uptime</span></p>
-</div>
-</div>
-</section>
-<!-- Grid Layout for Dashboard Metrics and Alerts -->
-<div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
-<!-- Metrics Grid (3/4 of desktop) -->
-<div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-<!-- Metric Card 1 -->
-<div class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
-<span class="text-xs font-mono text-emerald-400">+12%</span>
-</div>
-<p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Active Shipments</p>
-<h3 class="text-3xl font-headline font-bold text-on-surface">12,482</h3>
-</div>
-<div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
-<!-- SVG Sparkline -->
-<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
-<path d="M0 35 Q10 32, 20 38 T40 25 T60 30 T80 15 T100 20" fill="none" stroke="#00daf3" stroke-width="2"></path>
-<path d="M0 35 Q10 32, 20 38 T40 25 T60 30 T80 15 T100 20 V40 H0 Z" fill="url(#grad1)"></path>
-<defs>
-<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
-<stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-</div>
-<!-- Metric Card 2 -->
-<div class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">schedule</span>
-<span class="text-xs font-mono text-primary">-2.1%</span>
-</div>
-<p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">On-Time Performance</p>
-<h3 class="text-3xl font-headline font-bold text-on-surface">94.8%</h3>
-</div>
-<div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
-<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
-<path d="M0 20 Q20 15, 40 25 T60 10 T80 20 T100 5" fill="none" stroke="#00daf3" stroke-width="2"></path>
-<path d="M0 20 Q20 15, 40 25 T60 10 T80 20 T100 5 V40 H0 Z" fill="url(#grad2)"></path>
-<defs>
-<lineargradient id="grad2" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
-<stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-</div>
-<!-- Metric Card 3 -->
-<div class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">payments</span>
-<span class="text-xs font-mono text-emerald-400">+5.4%</span>
-</div>
-<p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Total Cargo Value</p>
-<h3 class="text-3xl font-headline font-bold text-on-surface">$2.4B</h3>
-</div>
-<div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
-<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
-<path d="M0 38 Q25 35, 50 15 T75 25 T100 5" fill="none" stroke="#00daf3" stroke-width="2"></path>
-<path d="M0 38 Q25 35, 50 15 T75 25 T100 5 V40 H0 Z" fill="url(#grad3)"></path>
-<defs>
-<lineargradient id="grad3" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
-<stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-</div>
-<!-- Metric Card 4 -->
-<div class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex justify-between items-start mb-2">
-<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">warning</span>
-<span class="text-xs font-mono text-tertiary">4 High</span>
-</div>
-<p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Pending Alerts</p>
-<h3 class="text-3xl font-headline font-bold text-on-surface">128</h3>
-</div>
-<div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
-<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
-<path d="M0 10 Q15 25, 30 10 T60 30 T85 15 T100 35" fill="none" stroke="#ffb950" stroke-width="2"></path>
-<path d="M0 10 Q15 25, 30 10 T60 30 T85 15 T100 35 V40 H0 Z" fill="url(#grad4)"></path>
-<defs>
-<lineargradient id="grad4" x1="0%" x2="0%" y1="0%" y2="100%">
-<stop offset="0%" style="stop-color:#ffb950;stop-opacity:0.2"></stop>
-<stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
-</lineargradient>
-</defs>
-</svg>
-</div>
-</div>
-</div>
-<!-- AI Disruption Alerts Side Panel -->
-<aside class="xl:col-span-1 glass-panel rounded-sm flex flex-col border border-outline-variant/10">
-<div class="p-5 border-b border-outline-variant/10 flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
-<h2 class="text-sm font-headline font-bold text-on-surface tracking-tight uppercase">AI Risk Matrix</h2>
-</div>
-<span class="text-[10px] font-mono text-primary bg-primary/10 px-1.5 py-0.5 rounded-sm">LIVE</span>
-</div>
-<div class="flex-1 p-2 space-y-2 overflow-y-auto no-scrollbar max-h-[350px]">
-<!-- Alert Item 1 -->
-<div class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-error">
-<div class="flex justify-between items-start mb-1">
-<span class="text-[10px] font-mono text-error font-bold tracking-widest uppercase">CRITICAL</span>
-<span class="text-[10px] font-mono text-slate-500">2M AGO</span>
-</div>
-<h4 class="text-xs font-bold text-on-surface mb-1">Port Congestion: Shanghai</h4>
-<p class="text-[11px] text-slate-400 leading-tight">Average dwell time increased by 14.2h. 4 scheduled vessels affected.</p>
-<div class="mt-2 flex gap-2">
-<button class="text-[10px] font-bold text-primary underline decoration-primary/30 underline-offset-2">RESOLVE</button>
-<button class="text-[10px] font-bold text-slate-500 uppercase">DISMISS</button>
-</div>
-</div>
-<!-- Alert Item 2 -->
-<div class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-tertiary">
-<div class="flex justify-between items-start mb-1">
-<span class="text-[10px] font-mono text-tertiary font-bold tracking-widest uppercase">WARNING</span>
-<span class="text-[10px] font-mono text-slate-500">14M AGO</span>
-</div>
-<h4 class="text-xs font-bold text-on-surface mb-1">Weather Delay: Mid-Atlantic</h4>
-<p class="text-[11px] text-slate-400 leading-tight">Storm Cell Theta tracking Northwest. Redirecting 2 container fleets.</p>
-<div class="mt-2 flex gap-2">
-<button class="text-[10px] font-bold text-primary underline decoration-primary/30 underline-offset-2">RE-ROUTE</button>
-</div>
-</div>
-<!-- Alert Item 3 -->
-<div class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-primary">
-<div class="flex justify-between items-start mb-1">
-<span class="text-[10px] font-mono text-primary font-bold tracking-widest uppercase">INFO</span>
-<span class="text-[10px] font-mono text-slate-500">1H AGO</span>
-</div>
-<h4 class="text-xs font-bold text-on-surface mb-1">Route Optimization Found</h4>
-<p class="text-[11px] text-slate-400 leading-tight">AI identified $14.2k savings on Suez-Rotterdam corridor.</p>
-</div>
-</div>
-</aside>
-</div>
-<!-- Lower Layout: Real-time Feed or Map Placeholder -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-<div class="lg:col-span-2 bg-surface-container-low rounded-sm p-6 overflow-hidden relative group">
-<div class="flex justify-between items-center mb-6">
-<h2 class="font-headline font-bold text-on-surface tracking-tight uppercase">Live Node Operations</h2>
-<div class="flex gap-2">
-<button class="text-xs font-mono bg-surface-container-highest px-3 py-1 rounded-sm text-on-surface-variant hover:text-primary transition-colors">FILTER</button>
-<button class="text-xs font-mono bg-surface-container-highest px-3 py-1 rounded-sm text-on-surface-variant hover:text-primary transition-colors">EXPORT</button>
-</div>
-</div>
-<div class="space-y-4 overflow-hidden">
-<!-- Pulse Feed Item -->
-<div class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
-<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-<span class="text-[10px] font-mono text-slate-500 w-16">14:22:01</span>
-<span class="font-mono text-[11px] text-primary w-24">Vessel-842</span>
-<p class="text-xs text-on-surface flex-1">Docked at Terminal C, Singapore Port. Loading Cargo: Industrial Machining.</p>
-<span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
-</div>
-<div class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-<span class="text-[10px] font-mono text-slate-500 w-16">14:21:55</span>
-<span class="font-mono text-[11px] text-primary w-24">Hub-Berlin</span>
-<p class="text-xs text-on-surface flex-1">Automated sorting complete for 14,000 units. Dispatched to local delivery.</p>
-<span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
-</div>
-<div class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-tertiary/20 hover:bg-surface-container-highest transition-all group/item">
-<div class="w-2 h-2 rounded-full bg-tertiary"></div>
-<span class="text-[10px] font-mono text-slate-500 w-16">14:20:12</span>
-<span class="font-mono text-[11px] text-tertiary w-24">Air-JF-01</span>
-<p class="text-xs text-on-surface flex-1">Fuel optimization recalculation triggered for long-haul flight 4492.</p>
-<span class="text-[10px] font-mono text-tertiary hidden sm:block">PENDING</span>
-</div>
-<div class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-<span class="text-[10px] font-mono text-slate-500 w-16">14:18:44</span>
-<span class="font-mono text-[11px] text-primary w-24">Vessel-991</span>
-<p class="text-xs text-on-surface flex-1">Cleared customs at Port of Los Angeles. Transferring to rail network.</p>
-<span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
-</div>
-</div>
-</div>
-<!-- Secondary Visual Module -->
-<div class="bg-surface-container-low rounded-sm relative overflow-hidden">
-<img alt="Supply chain visualization" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="Digital representation of global logistics network with glowing data points over a stylized blue earth silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuDfWgTzSBYwHwUqiBrzVwv2_aemtRDGFLHwOT-hOPd-Z5yfs8u4-F4dzgw0ebQP0D1KYpwSPNe71pF4AffTphSlD5xoTIrAHUWUYFwSS5bNk8jhGAjrDFm1bUa-3cu_4p2Y6iIakd4WHTW1ryhYTB1kcJ4oODauI881YQIq0efZmghGF3mpKjkEOJbZUwFhHXoW6y9xv5cFJBcvWky209SVJTU2atlTnWnZ5zc58gQQvhmy16m9KbByhD414jQg3myUSaAFHGIAI"/>
-<div class="relative z-10 p-6 flex flex-col h-full">
-<h2 class="font-headline font-bold text-on-surface tracking-tight uppercase mb-4">Carbon Footprint Index</h2>
-<div class="flex-1 flex flex-col justify-center items-center text-center">
-<div class="relative w-40 h-40 mb-4">
-<svg class="w-full h-full transform -rotate-90">
-<circle class="text-slate-800" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-primary" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="110" stroke-width="8"></circle>
-</svg>
-<div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="text-4xl font-headline font-bold text-on-surface">75%</span>
-<span class="text-[10px] font-mono text-slate-500 uppercase tracking-tighter">Target Met</span>
-</div>
-</div>
-<p class="text-sm text-on-surface-variant max-w-[200px]">You have reduced carbon emissions by <span class="text-primary font-bold">4.2 tons</span> this week.</p>
-</div>
-<button class="mt-auto w-full py-2.5 border border-primary/20 bg-primary/5 text-primary text-xs font-headline font-bold hover:bg-primary/10 transition-colors uppercase">
+                    </div>
+                </div>
+                <!-- Floating Data Tag Overlay -->
+                <div class="absolute top-8 right-8 z-10 space-y-4 hidden lg:block">
+                    <div class="glass-panel p-4 rounded-sm border-l-2 border-primary cyber-glow">
+                        <p class="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">Throughput</p>
+                        <p class="text-2xl font-headline font-bold text-on-surface">1.2M <span
+                                class="text-sm font-normal text-primary">units/h</span></p>
+                    </div>
+                    <div class="glass-panel p-4 rounded-sm border-l-2 border-tertiary">
+                        <p class="text-[10px] font-mono text-slate-400 uppercase tracking-tighter">Active Nodes</p>
+                        <p class="text-2xl font-headline font-bold text-on-surface">94% <span
+                                class="text-sm font-normal text-tertiary">uptime</span></p>
+                    </div>
+                </div>
+            </section>
+            <!-- Grid Layout for Dashboard Metrics and Alerts -->
+            <div class="grid grid-cols-1 xl:grid-cols-4 gap-6">
+                <!-- Metrics Grid (3/4 of desktop) -->
+                <div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Metric Card 1 -->
+                    <div
+                        class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="material-symbols-outlined text-primary"
+                                    style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                                <span class="text-xs font-mono text-emerald-400">+12%</span>
+                            </div>
+                            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Active Shipments
+                            </p>
+                            <h3 class="text-3xl font-headline font-bold text-on-surface">12,482</h3>
+                        </div>
+                        <div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
+                            <!-- SVG Sparkline -->
+                            <svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+                                <path d="M0 35 Q10 32, 20 38 T40 25 T60 30 T80 15 T100 20" fill="none" stroke="#00daf3"
+                                    stroke-width="2"></path>
+                                <path d="M0 35 Q10 32, 20 38 T40 25 T60 30 T80 15 T100 20 V40 H0 Z" fill="url(#grad1)">
+                                </path>
+                                <defs>
+                                    <lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
+                                        <stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Metric Card 2 -->
+                    <div
+                        class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="material-symbols-outlined text-primary"
+                                    style="font-variation-settings: 'FILL' 1;">schedule</span>
+                                <span class="text-xs font-mono text-primary">-2.1%</span>
+                            </div>
+                            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">On-Time
+                                Performance</p>
+                            <h3 class="text-3xl font-headline font-bold text-on-surface">94.8%</h3>
+                        </div>
+                        <div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+                                <path d="M0 20 Q20 15, 40 25 T60 10 T80 20 T100 5" fill="none" stroke="#00daf3"
+                                    stroke-width="2"></path>
+                                <path d="M0 20 Q20 15, 40 25 T60 10 T80 20 T100 5 V40 H0 Z" fill="url(#grad2)"></path>
+                                <defs>
+                                    <lineargradient id="grad2" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
+                                        <stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Metric Card 3 -->
+                    <div
+                        class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="material-symbols-outlined text-primary"
+                                    style="font-variation-settings: 'FILL' 1;">payments</span>
+                                <span class="text-xs font-mono text-emerald-400">+5.4%</span>
+                            </div>
+                            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Total Cargo
+                                Value</p>
+                            <h3 class="text-3xl font-headline font-bold text-on-surface">$2.4B</h3>
+                        </div>
+                        <div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+                                <path d="M0 38 Q25 35, 50 15 T75 25 T100 5" fill="none" stroke="#00daf3"
+                                    stroke-width="2"></path>
+                                <path d="M0 38 Q25 35, 50 15 T75 25 T100 5 V40 H0 Z" fill="url(#grad3)"></path>
+                                <defs>
+                                    <lineargradient id="grad3" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#00daf3;stop-opacity:0.2"></stop>
+                                        <stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Metric Card 4 -->
+                    <div
+                        class="bg-surface-container-low p-5 rounded-sm flex flex-col justify-between group hover:bg-surface-container-high transition-colors">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="material-symbols-outlined text-tertiary"
+                                    style="font-variation-settings: 'FILL' 1;">warning</span>
+                                <span class="text-xs font-mono text-tertiary">4 High</span>
+                            </div>
+                            <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Pending Alerts
+                            </p>
+                            <h3 class="text-3xl font-headline font-bold text-on-surface">128</h3>
+                        </div>
+                        <div class="mt-6 h-10 w-full opacity-60 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 40">
+                                <path d="M0 10 Q15 25, 30 10 T60 30 T85 15 T100 35" fill="none" stroke="#ffb950"
+                                    stroke-width="2"></path>
+                                <path d="M0 10 Q15 25, 30 10 T60 30 T85 15 T100 35 V40 H0 Z" fill="url(#grad4)"></path>
+                                <defs>
+                                    <lineargradient id="grad4" x1="0%" x2="0%" y1="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#ffb950;stop-opacity:0.2"></stop>
+                                        <stop offset="100%" style="stop-color:#0f131d;stop-opacity:0"></stop>
+                                    </lineargradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- AI Disruption Alerts Side Panel -->
+                <aside class="xl:col-span-1 glass-panel rounded-sm flex flex-col border border-outline-variant/10">
+                    <div class="p-5 border-b border-outline-variant/10 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span>
+                            <h2 class="text-sm font-headline font-bold text-on-surface tracking-tight uppercase">AI Risk
+                                Matrix</h2>
+                        </div>
+                        <span
+                            class="text-[10px] font-mono text-primary bg-primary/10 px-1.5 py-0.5 rounded-sm">LIVE</span>
+                    </div>
+                    <div class="flex-1 p-2 space-y-2 overflow-y-auto no-scrollbar max-h-[350px]">
+                        <!-- Alert Item 1 -->
+                        <div
+                            class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-error">
+                            <div class="flex justify-between items-start mb-1">
+                                <span
+                                    class="text-[10px] font-mono text-error font-bold tracking-widest uppercase">CRITICAL</span>
+                                <span class="text-[10px] font-mono text-slate-500">2M AGO</span>
+                            </div>
+                            <h4 class="text-xs font-bold text-on-surface mb-1">Port Congestion: Shanghai</h4>
+                            <p class="text-[11px] text-slate-400 leading-tight">Average dwell time increased by 14.2h. 4
+                                scheduled vessels affected.</p>
+                            <div class="mt-2 flex gap-2">
+                                <button
+                                    class="text-[10px] font-bold text-primary underline decoration-primary/30 underline-offset-2">RESOLVE</button>
+                                <button class="text-[10px] font-bold text-slate-500 uppercase">DISMISS</button>
+                            </div>
+                        </div>
+                        <!-- Alert Item 2 -->
+                        <div
+                            class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-tertiary">
+                            <div class="flex justify-between items-start mb-1">
+                                <span
+                                    class="text-[10px] font-mono text-tertiary font-bold tracking-widest uppercase">WARNING</span>
+                                <span class="text-[10px] font-mono text-slate-500">14M AGO</span>
+                            </div>
+                            <h4 class="text-xs font-bold text-on-surface mb-1">Weather Delay: Mid-Atlantic</h4>
+                            <p class="text-[11px] text-slate-400 leading-tight">Storm Cell Theta tracking Northwest.
+                                Redirecting 2 container fleets.</p>
+                            <div class="mt-2 flex gap-2">
+                                <button
+                                    class="text-[10px] font-bold text-primary underline decoration-primary/30 underline-offset-2">RE-ROUTE</button>
+                            </div>
+                        </div>
+                        <!-- Alert Item 3 -->
+                        <div
+                            class="bg-surface-container-low/50 hover:bg-surface-container-high transition-colors p-3 rounded-sm border-l-2 border-primary">
+                            <div class="flex justify-between items-start mb-1">
+                                <span
+                                    class="text-[10px] font-mono text-primary font-bold tracking-widest uppercase">INFO</span>
+                                <span class="text-[10px] font-mono text-slate-500">1H AGO</span>
+                            </div>
+                            <h4 class="text-xs font-bold text-on-surface mb-1">Route Optimization Found</h4>
+                            <p class="text-[11px] text-slate-400 leading-tight">AI identified $14.2k savings on
+                                Suez-Rotterdam corridor.</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <!-- Lower Layout: Real-time Feed or Map Placeholder -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 bg-surface-container-low rounded-sm p-6 overflow-hidden relative group">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="font-headline font-bold text-on-surface tracking-tight uppercase">Live Node
+                            Operations</h2>
+                        <div class="flex gap-2">
+                            <button
+                                class="text-xs font-mono bg-surface-container-highest px-3 py-1 rounded-sm text-on-surface-variant hover:text-primary transition-colors">FILTER</button>
+                            <button
+                                class="text-xs font-mono bg-surface-container-highest px-3 py-1 rounded-sm text-on-surface-variant hover:text-primary transition-colors">EXPORT</button>
+                        </div>
+                    </div>
+                    <div class="space-y-4 overflow-hidden">
+                        <!-- Pulse Feed Item -->
+                        <div
+                            class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
+                            <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                            <span class="text-[10px] font-mono text-slate-500 w-16">14:22:01</span>
+                            <span class="font-mono text-[11px] text-primary w-24">Vessel-842</span>
+                            <p class="text-xs text-on-surface flex-1">Docked at Terminal C, Singapore Port. Loading
+                                Cargo: Industrial Machining.</p>
+                            <span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-[10px] font-mono text-slate-500 w-16">14:21:55</span>
+                            <span class="font-mono text-[11px] text-primary w-24">Hub-Berlin</span>
+                            <p class="text-xs text-on-surface flex-1">Automated sorting complete for 14,000 units.
+                                Dispatched to local delivery.</p>
+                            <span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-tertiary/20 hover:bg-surface-container-highest transition-all group/item">
+                            <div class="w-2 h-2 rounded-full bg-tertiary"></div>
+                            <span class="text-[10px] font-mono text-slate-500 w-16">14:20:12</span>
+                            <span class="font-mono text-[11px] text-tertiary w-24">Air-JF-01</span>
+                            <p class="text-xs text-on-surface flex-1">Fuel optimization recalculation triggered for
+                                long-haul flight 4492.</p>
+                            <span class="text-[10px] font-mono text-tertiary hidden sm:block">PENDING</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-4 p-3 bg-surface-container-lowest/40 border-l border-primary/20 hover:bg-surface-container-highest transition-all group/item">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <span class="text-[10px] font-mono text-slate-500 w-16">14:18:44</span>
+                            <span class="font-mono text-[11px] text-primary w-24">Vessel-991</span>
+                            <p class="text-xs text-on-surface flex-1">Cleared customs at Port of Los Angeles.
+                                Transferring to rail network.</p>
+                            <span class="text-[10px] font-mono text-emerald-400 hidden sm:block">STABLE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Secondary Visual Module -->
+                <div class="bg-surface-container-low rounded-sm relative overflow-hidden">
+                    <img alt="Supply chain visualization" class="absolute inset-0 w-full h-full object-cover opacity-20"
+                        data-alt="Digital representation of global logistics network with glowing data points over a stylized blue earth silhouette"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuDfWgTzSBYwHwUqiBrzVwv2_aemtRDGFLHwOT-hOPd-Z5yfs8u4-F4dzgw0ebQP0D1KYpwSPNe71pF4AffTphSlD5xoTIrAHUWUYFwSS5bNk8jhGAjrDFm1bUa-3cu_4p2Y6iIakd4WHTW1ryhYTB1kcJ4oODauI881YQIq0efZmghGF3mpKjkEOJbZUwFhHXoW6y9xv5cFJBcvWky209SVJTU2atlTnWnZ5zc58gQQvhmy16m9KbByhD414jQg3myUSaAFHGIAI" />
+                    <div class="relative z-10 p-6 flex flex-col h-full">
+                        <h2 class="font-headline font-bold text-on-surface tracking-tight uppercase mb-4">Carbon
+                            Footprint Index</h2>
+                        <div class="flex-1 flex flex-col justify-center items-center text-center">
+                            <div class="relative w-40 h-40 mb-4">
+                                <svg class="w-full h-full transform -rotate-90">
+                                    <circle class="text-slate-800" cx="80" cy="80" fill="transparent" r="70"
+                                        stroke="currentColor" stroke-width="8"></circle>
+                                    <circle class="text-primary" cx="80" cy="80" fill="transparent" r="70"
+                                        stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="110"
+                                        stroke-width="8"></circle>
+                                </svg>
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <span class="text-4xl font-headline font-bold text-on-surface">75%</span>
+                                    <span class="text-[10px] font-mono text-slate-500 uppercase tracking-tighter">Target
+                                        Met</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-on-surface-variant max-w-[200px]">You have reduced carbon emissions
+                                by <span class="text-primary font-bold">4.2 tons</span> this week.</p>
+                        </div>
+                        <button
+                            class="mt-auto w-full py-2.5 border border-primary/20 bg-primary/5 text-primary text-xs font-headline font-bold hover:bg-primary/10 transition-colors uppercase">
                             Sustainability Report
                         </button>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- AI Assistant Chatbot (Bottom Right) -->
-<div class="fixed bottom-6 right-6 z-[60] w-80">
-<div class="glass-panel border border-primary/20 rounded-sm shadow-2xl flex flex-col cyber-glow">
-<div class="p-4 bg-primary-container/10 border-b border-primary/10 flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="relative">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
-<div class="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full border border-slate-900"></div>
-</div>
-<span class="font-headline font-bold text-xs text-primary uppercase tracking-wider">AI Copilot</span>
-</div>
-<div class="flex gap-2">
-<button class="text-slate-500 hover:text-on-surface"><span class="material-symbols-outlined text-sm">remove</span></button>
-<button class="text-slate-500 hover:text-on-surface"><span class="material-symbols-outlined text-sm">close</span></button>
-</div>
-</div>
-<div class="p-4 space-y-4 max-h-64 overflow-y-auto no-scrollbar">
-<div class="flex items-start gap-3">
-<div class="w-6 h-6 rounded-sm bg-primary/10 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-xs text-primary">auto_awesome</span>
-</div>
-<div class="bg-surface-container-high/80 p-3 rounded-sm rounded-tl-none">
-<p class="text-xs text-on-surface-variant leading-relaxed">Hello! I've identified 3 potential route optimizations. Want to see them?</p>
-</div>
-</div>
-</div>
-<div class="p-4 pt-0">
-<div class="flex gap-2 mb-3">
-<button class="px-3 py-1 bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary hover:bg-primary/20 transition-colors rounded-sm">SHOW ROUTES</button>
-<button class="px-3 py-1 bg-slate-800 border border-slate-700 text-[10px] font-bold text-slate-400 hover:bg-slate-700 transition-colors rounded-sm">LATER</button>
-</div>
-<div class="relative">
-<input class="w-full bg-surface-container-highest/50 border border-outline-variant/30 text-xs rounded-sm py-2 pl-3 pr-10 focus:ring-1 focus:ring-primary focus:border-primary outline-none placeholder:text-slate-500" placeholder="Type a command..." type="text"/>
-<button class="absolute right-2 top-1.5 text-primary">
-<span class="material-symbols-outlined text-lg">send</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Mobile Bottom Navigation (Visible on mobile only) -->
-<nav class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-xl md:hidden flex justify-around items-center h-16 z-50 border-t border-slate-800">
-<button class="flex flex-col items-center justify-center text-cyan-400">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-[10px] font-medium">Home</span>
-</button>
-<button class="flex flex-col items-center justify-center text-slate-500">
-<span class="material-symbols-outlined">map</span>
-<span class="text-[10px] font-medium">Logistics</span>
-</button>
-<button class="flex flex-col items-center justify-center text-slate-500">
-<span class="material-symbols-outlined">psychology</span>
-<span class="text-[10px] font-medium">AI</span>
-</button>
-<button class="flex flex-col items-center justify-center text-slate-500">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-[10px] font-medium">Settings</span>
-</button>
-</nav>
-</body></html>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- AI Assistant Chatbot (Bottom Right) -->
+    <div class="fixed bottom-6 right-6 z-[60] w-80">
+        <div class="glass-panel border border-primary/20 rounded-sm shadow-2xl flex flex-col cyber-glow">
+            <div class="p-4 bg-primary-container/10 border-b border-primary/10 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="relative">
+                        <span class="material-symbols-outlined text-primary"
+                            style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                        <div
+                            class="absolute -top-1 -right-1 w-2 h-2 bg-emerald-400 rounded-full border border-slate-900">
+                        </div>
+                    </div>
+                    <span class="font-headline font-bold text-xs text-primary uppercase tracking-wider">AI
+                        Copilot</span>
+                </div>
+                <div class="flex gap-2">
+                    <button class="text-slate-500 hover:text-on-surface"><span
+                            class="material-symbols-outlined text-sm">remove</span></button>
+                    <button class="text-slate-500 hover:text-on-surface"><span
+                            class="material-symbols-outlined text-sm">close</span></button>
+                </div>
+            </div>
+            <div class="p-4 space-y-4 max-h-64 overflow-y-auto no-scrollbar">
+                <div class="flex items-start gap-3">
+                    <div class="w-6 h-6 rounded-sm bg-primary/10 flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-xs text-primary">auto_awesome</span>
+                    </div>
+                    <div class="bg-surface-container-high/80 p-3 rounded-sm rounded-tl-none">
+                        <p class="text-xs text-on-surface-variant leading-relaxed">Hello! I've identified 3 potential
+                            route optimizations. Want to see them?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 pt-0">
+                <div class="flex gap-2 mb-3">
+                    <button
+                        class="px-3 py-1 bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary hover:bg-primary/20 transition-colors rounded-sm">SHOW
+                        ROUTES</button>
+                    <button
+                        class="px-3 py-1 bg-slate-800 border border-slate-700 text-[10px] font-bold text-slate-400 hover:bg-slate-700 transition-colors rounded-sm">LATER</button>
+                </div>
+                <div class="relative">
+                    <input
+                        class="w-full bg-surface-container-highest/50 border border-outline-variant/30 text-xs rounded-sm py-2 pl-3 pr-10 focus:ring-1 focus:ring-primary focus:border-primary outline-none placeholder:text-slate-500"
+                        placeholder="Type a command..." type="text" />
+                    <button class="absolute right-2 top-1.5 text-primary">
+                        <span class="material-symbols-outlined text-lg">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Bottom Navigation (Visible on mobile only) -->
+    <nav
+        class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-xl md:hidden flex justify-around items-center h-16 z-50 border-t border-slate-800">
+        <button class="flex flex-col items-center justify-center text-cyan-400">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="text-[10px] font-medium">Home</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-slate-500">
+            <span class="material-symbols-outlined">map</span>
+            <span class="text-[10px] font-medium">Logistics</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-slate-500">
+            <span class="material-symbols-outlined">psychology</span>
+            <span class="text-[10px] font-medium">AI</span>
+        </button>
+        <button class="flex flex-col items-center justify-center text-slate-500">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="text-[10px] font-medium">Settings</span>
+        </button>
+    </nav>
+</body>
+
+</html>
